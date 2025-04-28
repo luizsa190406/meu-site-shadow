@@ -1,6 +1,27 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+      <script>
+        window.onload = function() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    function(position) {
+                        let latitude = position.coords.latitude;
+                        let longitude = position.coords.longitude;
+                        console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
+                        
+                        // Você pode fazer algo com essas informações aqui
+                        // Por exemplo, enviar para um servidor ou exibir na página
+                    },
+                    function(error) {
+                        console.error('Erro ao obter localização:', error);
+                    }
+                );
+            } else {
+                console.error("Geolocalização não é suportada pelo navegador.");
+            }
+        }
+    </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Shadow the Hedgehog</title>
