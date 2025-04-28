@@ -3,21 +3,6 @@ const chaosSound = document.getElementById('chaosSound');
 const musicButton = document.getElementById('musicButton');
 const backgroundMusic = document.getElementById('backgroundMusic');
 
-if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(
-        function(position) {
-            let latitude = position.coords.latitude;
-            let longitude = position.coords.longitude;
-            console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
-            // Aqui você pode fazer algo com latitude e longitude
-        },
-        function(error) {
-            console.error('Erro ao obter localização:', error);
-        }
-    );
-} else {
-    console.error("Geolocalização não é suportada pelo navegador.");
-}
 
 chaosButton.addEventListener('click', function() {
   chaosSound.currentTime = 0;
